@@ -12,10 +12,8 @@ const ResetPassword = () => {
         <div className="ResetPassword-body">
             <Card title="ResetPassword" className="flex flex-columns justify-content-center md:w-30rem align-items-center text-center mt-5">
                 <InputText className="align-items-center justify-content-center mt-3" placeholder="email" />
-                <Password feedback={false} className="flex align-items-center justify-content-center mt-3"placeholder="senha"/>
-                <Button  className="align-items-center justify-content-center mt-3" label="ResetPassword"/><br/>
-                <Button label="recuperar senha" className="flex-row  justify-content-center align-content-between mt-5" text/>
-                <Button label="cadastrar" className="flex-row  justify-content-center align-content-between mt-2" text/>
+                <Button label="recuperar senha" className="flex  justify-content-center  mt-5" text/>
+                <Button label="cancelar" className="flex-row  justify-content-center  mt-2" text/>
             </Card>
             
 
