@@ -1,8 +1,35 @@
-
-.submit-body{
-
+.submit-body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;  
+}
+
+
+.form-group {
+    margin-bottom: 20px;  
+}
+
+.submit-card {
+    text-align: center;
+}
+.input-field{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button {
+    width: 100%; 
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary-button:hover, .secondary-button:hover {
+    opacity: 0.9; 
 }

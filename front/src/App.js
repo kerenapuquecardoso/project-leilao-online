@@ -6,8 +6,7 @@ import SimpleLayout from './components/SimpleLayout';
 import './App.css';
 import DefaultLayout from './components/DefaultLayout';
 import ResetPassword from './pages/reset_password/ResetPassword';
-import AlterPassword from './pages/alter_password/AlterPassword';
-import PasswordLayout from './components/PasswordLayout';
+import AlterPassword from './pages/alter_password/AlterPassword'; 
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={<DefaultLayout><Home/></DefaultLayout>}/>
             <Route path='/login' element={<SimpleLayout><Login/></SimpleLayout>}/>
-            <Route path='/login/submit' element={<PasswordLayout><Submit/></PasswordLayout>}/>
+            <Route path='/login/submit' element={<SimpleLayout><Submit/></SimpleLayout>}/>
             <Route path='/login/reset-password' element={<SimpleLayout><ResetPassword/></SimpleLayout>}/>
             <Route path='/login/alter-password' element={<SimpleLayout><AlterPassword/></SimpleLayout>}/>
 

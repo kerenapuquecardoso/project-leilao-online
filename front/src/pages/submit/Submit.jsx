@@ -3,23 +3,23 @@ import './Submit.css';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
-import { Password } from 'primereact/password';
+import ValidationPassword from "../../components/validation-password/ValidationPassword";
 
-        
 const Submit = () => {
     return(
         <div className="submit-body">
-            <Card title="Novo Cadastro" className="flex flex-columns justify-content-center md:w-30rem align-items-center text-center mt-5">
-                <InputText className="align-items-center justify-content-center mt-3" placeholder="nome" />
-                <InputText className="align-items-center justify-content-center mt-3" placeholder="email" />
-                <Password feedback={false} className="flex align-items-center justify-content-center mt-3" placeholder="senha"/>
-                <Button  label="Cadastrar" className="flex-row align-items-center justify-content-center  mt-3" raised severity="secondary" /><br/>
-                <Button label="Cancelar" className="flex-row align-items-center justify-content-center  mt-3" text/>
+            <Card title="Cadastrar" className="submit-card" text-align="center">
+                <div className="form-group">
+                    <InputText className="input-field" placeholder="Nome" />
+                    <InputText className="input-field" placeholder="Email" />
+                    <ValidationPassword className="input-field" />
+                </div>
+                <div className="form-group buttons-group">
+                    <Button label="Cadastrar" className="button primary-button"/>
+                    <Button label="Cancelar" className="button secondary-button" text />
+                </div>
             </Card>
-            
-
         </div>
-        
     );
 }
 
