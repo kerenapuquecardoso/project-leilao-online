@@ -11,6 +11,9 @@
     margin-bottom: 20px;  
 }
 
+.form-group input{
+    width: 100%;
+}
 .submit-card {
     text-align: center;
 }
