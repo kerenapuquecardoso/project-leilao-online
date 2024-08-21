@@ -56,7 +56,7 @@ export default function  ValidationPassword() {
     
             <form className="password-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <Password value={password} onChange={(e) => validation(e)} header={header} footer={footer} placeholder="Senha" className="password-input"/>
+                    <Password  toggleMask  inputStyle={{width: '100%'}} value={password} onChange={(e) => validation(e)} header={header} footer={footer} placeholder="Senha" className="password-input"/>
                 </div>
             </form>
             );

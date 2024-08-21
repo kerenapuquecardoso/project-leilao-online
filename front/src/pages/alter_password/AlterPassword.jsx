@@ -15,15 +15,18 @@ const AlterPassword = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState("");
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = async  (e) => {
         setPassword(e.target.value);
     };
 
-    const confirmPasswordInput = (e) => {
-        setConfirmPassword(e.target.value);
-        if(password !== confirmPassword){
+    const confirmPasswordInput =  (e) => {
+        const passwordIput = e.target.value;
+        setConfirmPassword(passwordIput);
+        if(password !== passwordIput){
             setPasswordsMatch("As senhas não conferem");
-        }else{
+
+        }
+        else{
             setPasswordsMatch("");
         }
     };
@@ -35,7 +38,7 @@ const AlterPassword = () => {
                 <InputText className="align-items-center justify-content-center mt-3" placeholder="email" />
                 <InputText className="align-items-center justify-content-center mt-3" placeholder="código" />
                 <ValidationPassword onChange={handlePasswordChange}/>
-                <Password onChange={confirmPasswordInput} feedback={false} className="flex align-items-center justify-content-center mt-3"placeholder="confirmar senha"/>
+                <Password toggleMask  onChange={confirmPasswordInput} feedback={false} className="flex align-items-center justify-content-center mt-3"placeholder="confirmar senha"/>
                 {passwordsMatch && <small>{passwordsMatch}</small>}
                 <div className="btn-alter-password"> <Button className="align-items-center justify-content-center mt-3" label="Alterar senha"onClick={() => navigate('/', '_blank')}  /></div>
                 <Button label="cancelar"className="flex-row  justify-content-center align-content-between mt-5" link onClick={() => navigate('/login', '_blank' )}/>
