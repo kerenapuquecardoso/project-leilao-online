@@ -34,7 +34,7 @@ const Login = () => {
         <div className="login-body">
             <Card title="Login" className="flex flex-columns justify-content-center md:w-30rem align-items-center text-center mt-5">
                 <InputText  onChange={handleChange}  name="email" className="align-items-center justify-content-center mt-3" inputStyle={{width:'100%'}} placeholder="email" />
-                <Password  onChange={handleChange} name="password" feedback={false} className="flex align-items-center justify-content-center mt-3" inputStyle={{width:'100%'}} placeholder="senha"/>
+                <Password toggleMask onChange={handleChange} name="password" feedback={false} className="flex align-items-center justify-content-center mt-3" inputStyle={{width:'100%'}} placeholder="senha"/>
                 <Button  onClick={login} className="align-items-center justify-content-center mt-3" inputStyle={{width:'100%'}} label="Login"/><br/>
                 <Button label="recuperar senha" link onClick={() =>  navigate('/login/reset-password', '_blank')}  className="flex-row  justify-content-center align-content-between mt-5" text/>
                 <Button label="cadastrar" link onClick={() => navigate('/login/submit', '_blank')} className="flex-row  justify-content-center align-content-between mt-2" text/>

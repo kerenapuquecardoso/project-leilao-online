@@ -17,6 +17,7 @@ function App() {
             <Route element={<PrivateRouter/>}>
               <Route path='/' element={<DefaultLayout><Home/></DefaultLayout>}/>
             </Route>
+            <Route path='/' element={<DefaultLayout><Home/></DefaultLayout>}/>
             <Route path='/login' element={<SimpleLayout><Login/></SimpleLayout>}/>
             <Route path='/login/submit' element={<SimpleLayout><Submit/></SimpleLayout>}/>
             <Route path='/login/reset-password' element={<SimpleLayout><ResetPassword/></SimpleLayout>}/>

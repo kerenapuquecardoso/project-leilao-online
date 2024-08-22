@@ -4,7 +4,7 @@ import { Password } from 'primereact/password';
 import { Divider } from 'primereact/divider';
 
 
-export default function  ValidationPassword() {
+export default function  ValidationPassword({onPasswordChange}) {
     const [password, setPassword] = useState('');
     const header = <div className="font-bold mb-3">Pick a password</div>;
     const [validateInput, setValidateInput] = useState({
@@ -15,7 +15,6 @@ export default function  ValidationPassword() {
         special: false
     });
     
-
     const validation = (e) => {
         const passwordIput = e.target.value;
         setPassword(passwordIput);
@@ -55,8 +54,8 @@ export default function  ValidationPassword() {
     return (
     
             <form className="password-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <Password  toggleMask  inputStyle={{width: '100%'}} value={password} onChange={(e) => validation(e)} header={header} footer={footer} placeholder="Senha" className="password-input"/>
+                <div className="p-icon-field">
+                    <Password  toggleMask style={{width:'100%'}} inputStyle={{width:'100%'}} value={password} onChange={(event) => onPasswordChange(event.target.value)} onInput={validation} header={header} footer={footer} placeholder="Senha" className="password-input"/>
                 </div>
             </form>
             );

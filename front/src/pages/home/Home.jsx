@@ -5,6 +5,8 @@ const Home  = () =>{
     return(
         <div className="body-home">
             <h1>Pagina Inicial</h1>
+            <img src="../../images/holandesa.png" alt="" />
+            <img src="../../images/logo.svg" alt="logo do leilão online" />
             <Logout/>
         </div>
     );
