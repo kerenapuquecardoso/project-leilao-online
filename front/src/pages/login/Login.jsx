@@ -17,13 +17,18 @@ const Login = () => {
     }
 
     const login = () => {
-        //chamada do backen para verificar as credenciais
-        if(usuario.email == "cardosokerenapuque@gmail.com" && usuario.password == "123456"){
+        //chamada do backend para verificar as credenciais
+        if(usuario.email == "cardosokerenapuque@gmail.com" || usuario.password == "123456"){
             let token = "token do backend";
             localStorage.setItem("token", token);
             localStorage.setItem("email", usuario.email);
             navigate("/");
+
+           
         }else{
+
+            
+            
             alert("Usuário ou senha incorretos");
         }
         
