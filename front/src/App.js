@@ -8,6 +8,7 @@ import DefaultLayout from './components/DefaultLayout';
 import ResetPassword from './pages/reset_password/ResetPassword';
 import AlterPassword from './pages/alter_password/AlterPassword'; 
 import PrivateRouter from './components/PrivateRouter';
+import Porfile from './pages/porfile/porfile';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route element={<PrivateRouter/>}>
               <Route path='/' element={<DefaultLayout><Home/></DefaultLayout>}/>
             </Route>
+            <Route path='/home/porfile' element={<DefaultLayout><Porfile/></DefaultLayout>}/>
             <Route path='/login' element={<SimpleLayout><Login/></SimpleLayout>}/>
             <Route path='/login/submit' element={<SimpleLayout><Submit/></SimpleLayout>}/>
             <Route path='/login/reset-password' element={<SimpleLayout><ResetPassword/></SimpleLayout>}/>

@@ -1,0 +1,12 @@
+{
+    "welcome":"Bem vindo",
+    "login":"Acessar",
+    "password":"Senha",
+    "email":"E-mail",
+    "button":{
+        "login":"Acessar",
+        "save":"Salvar",
+        "alter":"Alterar"
+    }
+
+}
