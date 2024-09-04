@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Header.css';
 import 'primeicons/primeicons.css';
 import MenuLeilao from "../menu/MenuLeilao";
-
+import LanguageDropdown from "../language/language_drop_dow"
 const Header = () => {
     const [menuVisible, setMenuVisible] = useState(false);
 
@@ -17,8 +17,10 @@ const Header = () => {
     return (
         <header>
             <nav>
+                
                 <div className="card flex">
                     <i className="pi pi-bars" onClick={toggleMenu}></i>
+                    <LanguageDropdown/>
                 </div>
             </nav>
             {menuVisible && (

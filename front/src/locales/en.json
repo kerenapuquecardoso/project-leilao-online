@@ -1,0 +1,10 @@
+{
+    "welcome":"Welcome",
+    "password":"Password",
+    "email":"E-mail",
+    "button":{
+        "login":"Login",
+        "save":"Save",
+        "alter":"Alter"
+    }
+}
