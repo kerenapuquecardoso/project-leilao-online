@@ -69,8 +69,8 @@ const Porfile = () => {
     const buscarPorCEP = async (cep) => {
         const cleanedCep = cep.replace(/\D/g, '');
         if (cleanedCep !== "") {
-            const validacep = /^[0-9]{8}$/;
-            if (validacep.test(cleanedCep)) {
+            const validaCep = /^[0-9]{8}$/;
+            if (validaCep.test(cleanedCep)) {
                 try {
                     const response = await fetch(`https://viacep.com.br/ws/${cleanedCep}/json`);
                     const data = await response.json();
@@ -86,6 +86,18 @@ const Porfile = () => {
             limpa_formulário_cep();
         }
     }
+
+    const validarCPF = (cpf) => {
+        const cleanedCpf = cpf.replace(/\D/g, '');
+        if (cleanedCpf !== "") {
+            const validaCpf = /^[0-9]{11}$/;
+            if (validaCpf.test(cleanedCpf)) {
+                
+            }
+
+        }
+        
+    }
     const navigate = useNavigate();
    
     return(
@@ -97,13 +109,13 @@ const Porfile = () => {
             </label>
             <input  type="file" className={styles.image_porfile}  accept="image/*" id="image_porfile" onChange={changeImage}/>
             <InputText className={styles.inputDocuments} placeholder={t('name')} />
+            <InputText className={styles.inputDocuments} placeholder={t('email')}/>
             <InputText className={styles.inputDocuments} placeholder="CPF" />
             <InputText className={styles.inputDocuments} placeholder="CEP" id="cep" onBlur={(e) => buscarPorCEP(e.target.value)}/>
             <InputText className={styles.inputDocuments} placeholder={t('street')} id="rua" />
             <InputText className={styles.inputDocuments} placeholder={t('neighborhoold')}  id="bairro"/>
             <InputText className={styles.inputDocuments} placeholder= {t('city')} id="cidade" />
             <InputText className={styles.inputDocuments} placeholder="uf" id="uf"/>
-            
             <Button className={styles.button_save}>{t('button.save')}</Button>
             <Button link>{t('button.cancel')}</Button>
             <Button link onClick={() => navigate('/', '_blank')}>{t('button.comeback')}</Button>
