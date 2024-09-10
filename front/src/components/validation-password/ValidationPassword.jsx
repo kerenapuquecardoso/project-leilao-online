@@ -4,7 +4,7 @@ import { Password } from 'primereact/password';
 import { Divider } from 'primereact/divider';
 import { useTranslation } from "react-i18next";
 
-export default function  ValidationPassword({onPasswordChange}) {
+export default function  ValidationPassword({onChange}) {
     const {t} = useTranslation();
     const [password, setPassword] = useState('');
     const header = <div className="font-bold mb-3">{t('passwordTxt')}</div>;
@@ -56,7 +56,7 @@ export default function  ValidationPassword({onPasswordChange}) {
     
             <form className="password-form" onSubmit={handleSubmit}>
                 <div className="p-icon-field">
-                    <Password  toggleMask style={{width:'100%'}} inputStyle={{width:'100%'}} value={password} onChange={(event) => onPasswordChange(event.target.value)} onInput={validation} header={header} footer={footer} placeholder={t('password')} className="password-input"/>
+                    <Password  toggleMask style={{width:'100%'}} inputStyle={{width:'100%'}} value={password} onChange={(event) => setPassword(event.target.value)} onInput={validation} header={header} footer={footer} placeholder={t('password')} className="password-input"/>
                 </div>
             </form>
             );
