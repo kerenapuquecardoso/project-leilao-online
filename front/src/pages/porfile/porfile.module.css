@@ -1,0 +1,72 @@
+.image_porfile{
+  display: none;   
+}
+
+.image{
+    width: 200px;
+    max-height: 200px;
+    aspect-ratio: 1/1;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed;
+    border-radius: 90%;
+    cursor: pointer;
+    transition: 0.5s;
+    overflow: hidden;
+   
+}
+
+.image .image_preview {
+    max-height: 200px;
+    width: 200px;
+    border-radius: 90%;
+    object-fit: cover; 
+    position: absolute;
+}
+
+.image:hover{
+    color: #6366f0;
+    background: #edf1fe;
+    
+}
+
+.image:active{
+    box-shadow: #aaa;
+    color: #6366f0;
+    background:  #d9d9fb;
+    
+}
+
+.image:focus{
+    box-shadow: 10px 10px 20px  #c7d2fe;
+    outline: solid 2px #6366f0;
+       
+}
+
+.button_save{
+
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.inputDocuments{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    flex-direction: column;
+
+}
+
+.card{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

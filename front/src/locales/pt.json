@@ -1,12 +1,45 @@
 {
+    "submit":"Cadastrar",
+    "resetPassword":"Recuperar senha",
     "welcome":"Bem vindo",
     "login":"Acessar",
     "password":"Senha",
+    "alterPassword":"Alterar Senha",
+    "confirmPassword":"Confirmar senha",
+    "code":"Código",
     "email":"E-mail",
+    "about":"Sobre o Leilão",
+    "contact":"Contato",
     "button":{
+        "submit2":"Cadastrar",
         "login":"Acessar",
         "save":"Salvar",
-        "alter":"Alterar"
-    }
+        "alter":"Alterar",
+        "cancel":"cancelar",
+        "submit":"não tem uma senha? cadastre agora",
+        "resetPassword":"recuperar senha",
+        "comeback":"voltar"
+    },
+    "txt-footer":" Nosso leilão online de gado oferece a melhor plataforma para compra e venda de gado leiteiro. Garantimos uma experiência segura e transparente para todos os usuários."
+    ,"reserved":"2024 Leilão Online. Todos os direitos reservados."
+    ,"payment":"Vendas de gado do mês"    
+    ,"logout":"sair"
+    ,"passwordTxt":"Crie sua senha"
+    ,"suggestions":"Sugestões"
+    ,"char":"6 caracteres"
+    ,"upperCase":"1 letra maiúscula"
+    ,"lowerCase":"1 letra minúscula"
+    ,"specialChar":"1 caractere especial"
+    ,"number":"1 número"
+    ,"dashboard1":"12 leilões ativos"
+    ,"dashboard2":"1000 novos usuários"
+    ,"dashboard3":"lucro mensal de R$ 100.000,00 "
+    ,"name":"nome"
+    ,"street":"rua"
+    ,"neighborhoold":"bairro"
+    ,"city":"cidade"
+    ,"chooseImage":"Escolha uma imagem para seu perfil"
+    ,"valueMilk":"Valor do litro do leite"
+    
 
 }

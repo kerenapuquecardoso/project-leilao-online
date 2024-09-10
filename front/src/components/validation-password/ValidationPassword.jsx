@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import './ValidationPassword.css';
 import { Password } from 'primereact/password';
 import { Divider } from 'primereact/divider';
-
+import { useTranslation } from "react-i18next";
 
 export default function  ValidationPassword({onPasswordChange}) {
+    const {t} = useTranslation();
     const [password, setPassword] = useState('');
-    const header = <div className="font-bold mb-3">Pick a password</div>;
+    const header = <div className="font-bold mb-3">{t('passwordTxt')}</div>;
     const [validateInput, setValidateInput] = useState({
         lowcase: false,
         upcase: false,
@@ -36,13 +37,13 @@ export default function  ValidationPassword({onPasswordChange}) {
     const  footer = (
         <>
             <Divider/>
-            <p className="mt-2">Suggestions</p>
+            <p className="mt-2">{t('suggestions')}</p>
             <ul className="pl-2 ml-2 mt-0 line-height-3">
-                <li className={validateInput.length ? "text-green-500" : "text-red-500"}>6 caracteres</li>
-                <li className={validateInput.upcase ? "text-green-500" : "text-red-500"}>1 letra maiúscula</li>
-                <li className={validateInput.lowcase ? "text-green-500" : "text-red-500"}>1 letra minúscula</li>
-                <li className={validateInput.special ? "text-green-500" : "text-red-500"}>1 caractere especial</li>
-                <li className={validateInput.number ? "text-green-500" : "text-red-500"}>1 número</li>
+                <li className={validateInput.length ? "text-green-500" : "text-red-500"}>{t('char')}</li>
+                <li className={validateInput.upcase ? "text-green-500" : "text-red-500"}>{t('upperCase')}</li>
+                <li className={validateInput.lowcase ? "text-green-500" : "text-red-500"}>{t('lowerCase')}</li>
+                <li className={validateInput.special ? "text-green-500" : "text-red-500"}>{t('specialChar')}</li>
+                <li className={validateInput.number ? "text-green-500" : "text-red-500"}>{t('number')}</li>
             </ul>
         </>
     );
@@ -55,7 +56,7 @@ export default function  ValidationPassword({onPasswordChange}) {
     
             <form className="password-form" onSubmit={handleSubmit}>
                 <div className="p-icon-field">
-                    <Password  toggleMask style={{width:'100%'}} inputStyle={{width:'100%'}} value={password} onChange={(event) => onPasswordChange(event.target.value)} onInput={validation} header={header} footer={footer} placeholder="Senha" className="password-input"/>
+                    <Password  toggleMask style={{width:'100%'}} inputStyle={{width:'100%'}} value={password} onChange={(event) => onPasswordChange(event.target.value)} onInput={validation} header={header} footer={footer} placeholder={t('password')} className="password-input"/>
                 </div>
             </form>
             );

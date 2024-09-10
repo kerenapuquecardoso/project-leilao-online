@@ -5,19 +5,21 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import ValidationPassword from "../../components/validation-password/ValidationPassword";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const Submit = () => {
+    const {t} = useTranslation();
     const navigate = useNavigate();
     return(
         <div className="submit-body">
-            <Card title="Cadastrar" className="submit-card" text-align="center">
+            <Card title={t('submit')} className="submit-card" text-align="center">
                 <div className="form-group">
-                    <InputText className="input-field" placeholder="Nome" />
-                    <InputText className="input-field" placeholder="Email" />
+                    <InputText className="input-field" placeholder={t('name')} />
+                    <InputText className="input-field" placeholder={t('email')} />
                     <ValidationPassword className="input-field" />
                 </div>
                 <div className="buttons-group">
-                    <Button label="Cadastrar" onClick={() =>  navigate('/',  '_blank')} className="button primary-button"/>
-                    <Button label="Cancelar" link onClick={() =>  navigate('/login',  '_blank')} className="button secondary-button" text />
+                    <Button label={t('submit2')} onClick={() =>  navigate('/',  '_blank')} className="button primary-button"/>
+                    <Button label={t('button.cancel')} link onClick={() =>  navigate('/login',  '_blank')} className="button secondary-button" text />
                 </div>
             </Card>
         </div>

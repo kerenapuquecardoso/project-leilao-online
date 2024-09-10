@@ -1,10 +1,43 @@
 {
-    "welcome":"Welcome",
-    "password":"Password",
-    "email":"E-mail",
-    "button":{
-        "login":"Login",
-        "save":"Save",
-        "alter":"Alter"
-    }
+    "submit": "Register",
+    "resetPassword": "Recover password",
+    "welcome": "Welcome",
+    "login": "Login",
+    "password": "Password",
+    "alterPassword": "Change Password",
+    "confirmPassword": "Confirm password",
+    "code": "Code",
+    "email": "Email",
+    "about": "About the Auction",
+    "contact": "Contact",
+    "button": {
+        "submit2": "Register",
+        "login": "Login",
+        "save": "Save",
+        "alter": "Change",
+        "cancel": "Cancel",
+        "submit": "Don't have a password? Register now",
+        "resetPassword": "Recover password",
+        "comeback":"voltar"
+    },
+    "txt-footer": "Our online cattle auction offers the best platform for buying and selling dairy cattle. We guarantee a secure and transparent experience for all users.",
+    "reserved": "2024 Online Auction. All rights reserved.",
+    "payment": "Cattle sales of the month",
+    "logout": "Logout",
+    "passwordTxt": "Create your password",
+    "suggestions": "Suggestions",
+    "char": "6 characters",
+    "upperCase": "1 uppercase letter",
+    "lowerCase": "1 lowercase letter",
+    "specialChar": "1 special character",
+    "number": "1 number",
+    "dashboard1": "12 active auctions",
+    "dashboard2": "1000 new users",
+    "dashboard3": "monthly profit of $100,000.00",
+    "name": "Name",
+    "street": "Street",
+    "neighborhoold": "Neighborhood",
+    "city": "City",
+    "chooseImage": "Choose an image for your profile"
+    ,"valueMilk":"Value liter of Milk"
 }
