@@ -5,7 +5,7 @@ import styles from './LanguageDropdown.module.css';
 import en from '../../images/en.png';
 import pt from '../../images/pt.png'
 const LanguageDropdown = () => {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     const changeLanguage = (language) => {
         i18n.changeLanguage(language);
@@ -27,7 +27,7 @@ const LanguageDropdown = () => {
             );
         }
 
-        return <span>Select Language</span>;
+        return <span>{t('chooseLanguage')}</span>;
     };
 
     const languageOptionTemplate = (option) => {

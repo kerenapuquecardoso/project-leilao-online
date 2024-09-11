@@ -34,12 +34,14 @@
     ,"dashboard1":"12 leilões ativos"
     ,"dashboard2":"1000 novos usuários"
     ,"dashboard3":"lucro mensal de R$ 100.000,00 "
+    ,"adress":"Endereço"
     ,"name":"nome"
     ,"street":"rua"
     ,"neighborhoold":"bairro"
     ,"city":"cidade"
-    ,"chooseImage":"Escolha uma imagem para seu perfil"
     ,"valueMilk":"Valor do litro do leite"
-    
+    ,"upload":"escolha uma imagem para seu perfil"
+    ,"chooseLanguage":"Escolha um idioma"
+    ,"userPorfile":"Perfil do Usuário"
 
 }
