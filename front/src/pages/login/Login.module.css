@@ -1,15 +1,20 @@
-.login-body{
+.body{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-body button, input{
+.body button, input{
     width: 100%;
 }
 
 
-.p-icon-field{
+.field{
     width: 100%;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
 }

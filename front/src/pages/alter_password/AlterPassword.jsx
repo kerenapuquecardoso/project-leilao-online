@@ -1,5 +1,6 @@
 import React from "react";
-import './AlterPassword.css';
+import styles from './AlterPassword.module.css';
+import logo from "../../images/logo.png";
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -36,8 +37,9 @@ const AlterPassword = () => {
 
     
     return(
-        <div className="alter-password-body">
+        <div className={styles.body}>
             <Card title={t('alterPassword')} className="flex flex-columns justify-content-center md:w-30rem align-items-center text-center mt-5">
+                <img className={styles.img} src={logo}/>
                 <InputText className="align-items-center justify-content-center mt-3" placeholder={t('email')} />
                 <InputText className="align-items-center justify-content-center mt-3" placeholder={t('code')} />
                 <ValidationPassword onPasswordChange={handlePasswordChange} />

@@ -10,7 +10,7 @@ import { InputMask } from "primereact/inputmask";
 const PopUpEdit = ({visible, setVisible}) => {
     const {t} = useTranslation();
     const [value, setValue] = useState();
-
+/*
     const consultarLocalizacao = () => {
         const localizacaoStorage = localStorage.getItem('cep');
         if(localizacaoStorage){
@@ -35,7 +35,7 @@ const PopUpEdit = ({visible, setVisible}) => {
             });
         }
     }
-
+*/
     function limpa_formulário_cep() {
         document.getElementById('nome').value=("");
         document.getElementById('email').value=("");
@@ -82,6 +82,25 @@ const PopUpEdit = ({visible, setVisible}) => {
         }
     }
 
+    function salvarDados(){
+        const nome =  document.getElementById('nome').value;
+        const email =  document.getElementById('email').value;
+        const cpf =  document.getElementById('cpf').value;
+        const cep =  document.getElementById('cep').value;
+        const rua =  document.getElementById('rua').value;
+        const bairro =  document.getElementById('bairro').value;
+        const cidade =  document.getElementById('cidade').value;
+        const uf =  document.getElementById('uf').value;
+        localStorage.setItem('nome', nome);
+        localStorage.setItem('email', email);
+        localStorage.setItem('cpf', cpf);
+        localStorage.setItem('cep', cep);
+        localStorage.setItem('rua', rua);
+        localStorage.setItem('bairro', bairro);
+        localStorage.setItem('cidade', cidade);
+        localStorage.setItem('uf', uf);
+
+    }
     const navigate = useNavigate();
    
     return(
@@ -97,7 +116,7 @@ const PopUpEdit = ({visible, setVisible}) => {
             <InputText className={styles.inputDocuments} placeholder={t('neighborhoold')}  id="bairro"/>
             <InputText className={styles.inputDocuments} placeholder= {t('city')} id="cidade" />
             <InputText className={styles.inputDocuments} placeholder="uf" id="uf"/>
-            <Button className={styles.button_save}>{t('button.save')}</Button>
+            <Button className={styles.button_save} onClick={salvarDados}>{t('button.save')}</Button>
             <Button link onClick={limpa_formulário_cep}>{t('button.cancel')}</Button>
            
         </Dialog>

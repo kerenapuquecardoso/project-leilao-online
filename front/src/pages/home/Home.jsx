@@ -8,10 +8,12 @@ import { Card } from 'primereact/card';
 
 const Home = () => {
     const { t } = useTranslation();
+    const storedUserName = localStorage.getItem('nome') || '';
 
     return (
         <div className={styles.bodyHome}>
-            <h1 className={styles.h1}>{t('welcome')}</h1>
+            
+            <h1 className={styles.h1}>{t('welcome')}, {storedUserName}</h1>
             <img src={holandesa} className={styles.holandesa} alt="logo do leilão online" />
             
             <div className={styles.cardContainer}>

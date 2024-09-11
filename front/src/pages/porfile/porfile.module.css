@@ -1,14 +1,19 @@
 .container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    
 }
 
 .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
+    margin: 25px;
+    
 }
 
 .profile {
@@ -18,11 +23,9 @@
     margin-bottom: 20px;
 }
 
-.linkButton {
+.button {
+    width: 100%;
     margin-top: 10px;
-    background: none;
     border: none;
-    color: blue;
-    text-decoration: underline;
     cursor: pointer;
 }
