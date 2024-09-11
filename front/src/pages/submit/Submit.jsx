@@ -18,8 +18,8 @@ const Submit = () => {
                     <ValidationPassword className="input-field" />
                 </div>
                 <div className="buttons-group">
-                    <Button label={t('submit2')} onClick={() =>  navigate('/',  '_blank')} className="button primary-button"/>
-                    <Button label={t('button.cancel')} link onClick={() =>  navigate('/login',  '_blank')} className="button secondary-button" text />
+                    <Button label={t('submit2')} onClick={() =>  navigate('/home',  '_blank')} className="button primary-button"/>
+                    <Button label={t('button.cancel')} link onClick={() =>  navigate('/',  '_blank')} className="button secondary-button" text />
                 </div>
             </Card>
         </div>

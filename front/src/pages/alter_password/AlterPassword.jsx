@@ -43,8 +43,8 @@ const AlterPassword = () => {
                 <ValidationPassword onPasswordChange={handlePasswordChange} />
                 <Password toggleMask  onChange={confirmPasswordInput} feedback={false} className="flex align-items-center justify-content-center mt-3"placeholder={t('confirmPassword')}/>
                 {passwordsMatch && <small >{passwordsMatch}</small> }
-                <div className="btn-alter-password"> <Button className="align-items-center justify-content-center mt-3" label={t('alterPassword')} onClick={() => navigate('/', '_blank')}  /></div>
-                <Button label={t('button.cancel')}className="flex-row  justify-content-center align-content-between mt-5" link onClick={() => navigate('/login', '_blank' )}/>
+                <div className="btn-alter-password"> <Button className="align-items-center justify-content-center mt-3" label={t('alterPassword')} onClick={() => navigate('/home', '_blank')}  /></div>
+                <Button label={t('button.cancel')}className="flex-row  justify-content-center align-content-between mt-5" link onClick={() => navigate('/', '_blank' )}/>
             </Card>
         </div>
     );

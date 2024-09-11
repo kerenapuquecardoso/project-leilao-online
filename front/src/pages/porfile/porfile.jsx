@@ -25,7 +25,7 @@ const Porfile = () => {
                     <p><strong>{t('city')}</strong> Paranavaí</p>
                     <p><strong>UF:</strong>PR</p>
                     <Button label={t('Editar Perfil')} onClick={() => setPopUpVisible(true)} />
-                    <Button link onClick={() => navigate('/', '_blank')}>{t('button.comeback')}</Button>
+                    <Button link onClick={() => navigate('/home', '_blank')}>{t('button.comeback')}</Button>
                 
             </Card>
             <PopUpEdit visible={isPopUpVisible} setVisible={setPopUpVisible} />

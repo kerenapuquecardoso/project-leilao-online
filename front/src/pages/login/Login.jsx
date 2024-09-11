@@ -24,7 +24,7 @@ const Login = () => {
             let token = "token do backend";
             localStorage.setItem("token", token);
             localStorage.setItem("email", usuario.email);
-            navigate("/");
+            navigate("/home");
 
            
         }else{ 
