@@ -1,7 +1,8 @@
 package com.leilao.backend.entity;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,6 +48,7 @@ public class Person implements UserDetails{
     @NotBlank 
     private String nome;
 
+    @Column(unique = true)
     private String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -55,24 +57,31 @@ public class Person implements UserDetails{
     @Transient
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    @Column(unique = true)
     private Integer validationCode;
+
+    @Column(name="status")
+    private Boolean status = false;
 
     @JsonIgnore
     @Temporal(TemporalType.TIMESTAMP)
-    @Transient
     @Column(name = "validation_code_validity")
-    private Date validationCodeValidity;
+    private LocalDateTime validationCodeValidity;
 
     @Transient
     @OneToMany(mappedBy = "person", orphanRemoval = true, cascade = CascadeType.ALL)
     @Setter(value = AccessLevel.NONE)
-    private List<PersonPorfile> porfilePerson;
+    private List<PersonPorfile> porfilePerson = new ArrayList<>();
 
     public void setporfilePerson(List<PersonPorfile> porfilePersons) {
         for (PersonPorfile p : porfilePersons) {
             p.setPerson(this);
         }
         porfilePerson = porfilePersons;
+    }
+
+    public void setPassword(String password){
+        this.password = passwordEncoder.encode(password);
     }
 
     @Override

@@ -1,6 +1,23 @@
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro Efetuado com Sucesso</title>
+        <style>
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #b0b2b4;
+                color: #1D3244;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
     <body>
         <h2>Cadastro Efetuado com sucesso</h2>
-        <h3>Seja bem vindo, <span th:text="${nome}"></span></h3>
+        <h3>Seja bem-vindo, <span th:text="${name}"></span></h3>
+        <a th:href="@{http://localhost:3000/validate-user(email=${email})}" class="button" style="color:aliceblue">Confirmar e-mail</a>
     </body>
 </html>

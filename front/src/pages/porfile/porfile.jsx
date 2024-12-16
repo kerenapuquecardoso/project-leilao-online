@@ -11,7 +11,6 @@ const Porfile = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const [isPopUpVisible, setPopUpVisible] = useState(false);
-
     const storagedName = localStorage.getItem('nome') || '';
     const storagedEmail = localStorage.getItem('email') || '';
     const storagedCpf = localStorage.getItem('cpf') || '';

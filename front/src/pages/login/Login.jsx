@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from './Login.module.css';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
@@ -6,29 +6,44 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Toast } from "primereact/toast";
 import logo from "../../images/logo.png";
+import PersonService from "../../services/PersonService";
                       
         
 const Login = () => {
     const [usuario, setUsuario] = useState({email:"", password:""});
     const navigate = useNavigate();
     const {t} = useTranslation();
+    const toast = useRef(null);
+    const personService = new PersonService();
 
     const handleChange = (input) => {
         setUsuario({...usuario, [input.target.name]:input.target.value});
     }
 
-    const login = () => {
+    const login = async () => {
         //chamada do backend para verificar as credenciais
-        if(usuario.email == "cardosokerenapuque@gmail.com" && usuario.password == "123456"){
-            let token = "token do backend";
+        try{
+            const response = await personService.login(usuario);
+            let token = response.token;
             localStorage.setItem("token", token);
             localStorage.setItem("email", usuario.email);
+            toast.current.show({
+                severity: "success",
+                summary: "Sucesso",
+                detail: "Login realizado com sucesso!",
+            });
             navigate("/home");
-
            
-        }else{ 
-            alert("Usuário ou senha incorretos");
+        }catch(e){ 
+            console.log(e);
+            toast.current.show({
+                severity: "error",
+                summary: "Erro",
+                detail: "Email ou senha inválidos!",
+            });
+            navigate("/access-danied");
         }
         
     }

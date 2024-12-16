@@ -59,6 +59,7 @@ export default function ValidationPassword({ onPasswordChange }) {
         <form className="password-form" onSubmit={handleSubmit}>
             <div className="p-icon-field">
                 <Password
+                    name="password"
                     toggleMask
                     style={{ width: '100%' }}
                     inputStyle={{ width: '100%' }}

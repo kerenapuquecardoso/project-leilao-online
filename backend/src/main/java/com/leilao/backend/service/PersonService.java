@@ -1,8 +1,7 @@
 package com.leilao.backend.service;
 
 import java.security.SecureRandom;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -38,24 +37,27 @@ public class PersonService implements UserDetailsService{
     }
 
     public Person salvar(Person person) {
-        if(emailJaCadastrado(person.getEmail())){
+        if (emailJaCadastrado(person.getEmail())) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
-        Person personSave = personRepository.save(person);
         Context context = new Context();
-        context.setVariable("name", personSave.getNome()); // Adiciona a variável "name" ao contexto
+        context.setVariable("name", person.getNome());
+        context.setVariable("email", person.getEmail());
+        Person personSave = personRepository.save(person);
         try {
+           
             emailService.sendTemplateEmail(personSave.getEmail(), "Cadastro efetuado com sucesso", context, "emailWelcome");
         } catch (MessagingException e) {
             System.out.println("ERROR: ERRO AO ENVIAR EMAIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             e.printStackTrace();
         }
-        return personSave;
+    
+        return  personSave;
     }
 
-    public String changePassword(PersonUpdatePasswordDTO personDto) {
+    public Person changePassword(PersonUpdatePasswordDTO personDto) {
         Optional<Person> person = personRepository.findByEmail(personDto.getEmail());
-        if (person.isPresent()) {
+        try {
             Person personDatabase = person.get();
 
             SecureRandom secureRandom = new SecureRandom();
@@ -64,12 +66,12 @@ public class PersonService implements UserDetailsService{
             String formattedNumber = String.format("%06d", randomNumber);
             personDatabase.setValidationCode(Integer.parseInt(formattedNumber));
             
-            Date data = new Date();
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(data);
-            calendar.add(Calendar.MINUTE, 120); 
-            Date dataAjustada = calendar.getTime();
-            personDatabase.setValidationCodeValidity(dataAjustada);
+           
+            LocalDateTime data = LocalDateTime.now().plusMinutes(120);
+            if(data == null){
+                throw new RuntimeException("Data de validade do código deu erro e não foi definida corretamente " + data);
+            }
+            personDatabase.setValidationCodeValidity(data);
             
             Context context = new Context();
             context.setVariable("name", personDatabase.getNome());
@@ -77,38 +79,40 @@ public class PersonService implements UserDetailsService{
 
             try {
                 personRepository.save(personDatabase);
-                emailService.sendTemplateEmail(personDatabase.getEmail(), "Alteração de senha efetuada com sucesso", context, "emailUpdatePassword");
+                emailService.sendTemplateEmail(personDatabase.getEmail(), "Código enviado para o email cadastrado", context, "emailUpdatePassword");
             } catch (MessagingException e) {
                 System.out.println("ERROR: ERRO AO ENVIAR EMAIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 e.printStackTrace();
             }
-            return "Código enviado para o email cadastrado " + personDatabase.getValidationCodeValidity();
-        } else {
-            return "Email não cadastrado";
+            return personDatabase;
+        } catch (RuntimeException err) {
+            throw new RuntimeException("Erro ao trocar de imagens");
         }
     }
 
-    public String updateNewPassword(PersonAuthResponseDTO person) {
+    public Person updateNewPassword(PersonAuthResponseDTO person) {
         Optional<Person> personSalvo = personRepository.findByEmailAndValidationCode(person.getEmail(), person.getCode());
         if (personSalvo.isEmpty()) {
-            return "Usuário ou código inválido";
+            throw new RuntimeException("Usuário ou código inválido");
         }
 
         Person personDatabase = personSalvo.get();
-        Date dataAtual = new Date(); 
-        Date validadeCodigo = personDatabase.getValidationCodeValidity();
+        LocalDateTime dataAtual = LocalDateTime.now();
+        LocalDateTime validadeCodigo = personDatabase.getValidationCodeValidity();
+        System.out.println("VALIDADE DO CÓDIGO" + validadeCodigo);
+        System.out.println("DATA ATUAL" + dataAtual);
 
         if (validadeCodigo == null) {
-            return "Validade do código não definida";
+            throw new RuntimeException("Validade do código não definida");
         }
 
-        if (dataAtual.after(validadeCodigo)) {
-            return "Código expirado";
+        if (dataAtual.isAfter(validadeCodigo)) {
+            throw new RuntimeException("Código expirado");
         }
 
         personDatabase.setPassword(person.getNewPassword());
         personRepository.save(personDatabase);
-        return "Senha alterada com sucesso!";
+        return personDatabase;
     }
 
 
@@ -123,6 +127,18 @@ public class PersonService implements UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return personRepository.findByEmail(username)
             .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
+    }
+
+
+    public Boolean validarUser(String email) {
+        Optional<Person> personEmail = personRepository.findByEmail(email);
+        if (personEmail.isEmpty()) {
+            return false;
+        }
+        Person personValidity = personEmail.get();
+        personValidity.setStatus(true);
+        personRepository.save(personValidity);
+        return true;
     }
 
 

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ValidationPassword from "../../components/validation-password/ValidationPassword";
 import { useTranslation } from "react-i18next";
+import PersonService from "../../services/PersonService";
 
 const AlterPassword = () => {
     const {t} = useTranslation();
@@ -20,6 +21,16 @@ const AlterPassword = () => {
     const handlePasswordChange = (e) => {
         setPassword(e);
     };
+
+    const handleSubmit = async () => {
+        const res = await PersonService.updateAnewPassword(confirmPassword);
+        if (res.status == 'OK'){
+            navigate('/home', '_blank');
+        }else {
+            return <p>Erro ao atualizar senha! por favor verifique seu</p>
+        }
+        
+    }
 
     const confirmPasswordInput =  (e) => {
         const passwordIput = e.target.value;
@@ -45,7 +56,7 @@ const AlterPassword = () => {
                 <ValidationPassword onPasswordChange={handlePasswordChange} />
                 <Password toggleMask  onChange={confirmPasswordInput} feedback={false} className="flex align-items-center justify-content-center mt-3"placeholder={t('confirmPassword')}/>
                 {passwordsMatch && <small >{passwordsMatch}</small> }
-                <div className="btn-alter-password"> <Button className="align-items-center justify-content-center mt-3" label={t('alterPassword')} onClick={() => navigate('/home', '_blank')}  /></div>
+                <div className="btn-alter-password"> <Button className="align-items-center justify-content-center mt-3" label={t('alterPassword')} onClick={handleSubmit}  /></div>
                 <Button label={t('button.cancel')}className="flex-row  justify-content-center align-content-between mt-5" link onClick={() => navigate('/', '_blank' )}/>
             </Card>
         </div>
