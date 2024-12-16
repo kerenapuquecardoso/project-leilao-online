@@ -1,42 +1,46 @@
-import React  from "react";
-import './Home.css';
-import { Chart } from 'primereact/chart';
+import React from "react";
 import holandesa from "../../images/holandesa.png";
 import { useTranslation } from "react-i18next";
-import VerticalBarDemo from "../../components/graph/vertical_bar_demo"
-import { Card } from "primereact/card";
+import VerticalBarDemo from "../../components/graph/vertical_bar_demo";
 import DoughnutChartDemo from "../../components/graph/doughnut_chart_demo";
+import styles from './Home.module.css';
+import { Card } from 'primereact/card';
 
-const Home  = () =>{
-    const {t} = useTranslation();
+const Home = () => {
+    const { t } = useTranslation();
+    const storedUserName = localStorage.getItem('nome') || '';
 
-    return(
-        <div className="body-home">
-            <h1>{t('welcome')}Gado</h1>
-            <img src={holandesa} className="holandesa" alt="logo do leilão online" />
-            <div class="flex justify-content-evenly flex-wrap">
-                <Card class="flex align-items-center justify-content-center shadow-6 p-4 w-3 h-17rem font-bold border-round m-2 line-height-2 font-light text-base"><p>Valor médio do @</p></Card>
-                <Card class="flex align-items-center justify-content-center shadow-6 p-4  w-3  h-17rem font-bold border-round m-2 line-height-2 font-light text-base"><p>Valor médio do @</p></Card>
-                <Card class="flex align-items-center justify-content-center shadow-6 p-4  w-3 h-17rem font-bold border-round m-2 line-height-2 font-light"><p>Valor médio do @</p></Card>
-            </div>
-            <div className="grap">
-                <VerticalBarDemo></VerticalBarDemo>
-                <DoughnutChartDemo></DoughnutChartDemo>
+    return (
+        <div className={styles.bodyHome}>
+            
+            <h1 className={styles.h1}>{t('welcome')}, {storedUserName}</h1>
+            <img src={holandesa} className={styles.holandesa} alt="logo do leilão online" />
+            
+            <div className={styles.cardContainer}>
+                <Card className={styles.card}>
+                    <p>{t('Leilões Ativos')}</p>
+                    <h2>12</h2>
+                </Card>
+                <Card className={styles.card}>
+                    <p>{t('Últimos Itens Arrematados')}</p>
+                    <h2>R$ 45.000</h2>
+                </Card>
+                <Card className={styles.card}>
+                    <p>{t('Usuários Cadastrados')}</p>
+                    <h2>128</h2>
+                </Card>
+                <Card className={styles.card}>
+                    <p>{t('Total de Vendas')}</p>
+                    <h2>R$ 320.000</h2>
+                </Card>
             </div>
             
-            
+            <div className={styles.grap}>
+                <VerticalBarDemo />
+                <DoughnutChartDemo />
+            </div>
         </div>
-
-        
     );
-}
+};
 
 export default Home;
-
-
-/**
- * quantidade de leilões ativos, 
- * últimos itens arrematados, 
- * últimos usuários cadastrados, 
- * total de vendas realizadas, 
- */

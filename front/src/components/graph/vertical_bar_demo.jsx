@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
-
+import { useTranslation } from "react-i18next";
 export default function VerticalBarDemo() {
+    const {t} = useTranslation();
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
 
@@ -11,11 +12,12 @@ export default function VerticalBarDemo() {
         const textColor = documentStyle.getPropertyValue('--text-color');
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+        const labelValueMilk = t('valueMilk');
         const data = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: 'Valor do litro do leite',
+                    label: labelValueMilk,
                     backgroundColor: documentStyle.getPropertyValue('--blue-500'),
                     borderColor: documentStyle.getPropertyValue('--blue-500'),
                     data: [65, 59, 80, 81, 56, 55, 40]

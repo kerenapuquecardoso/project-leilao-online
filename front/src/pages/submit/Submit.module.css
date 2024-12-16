@@ -1,4 +1,4 @@
-.submit-body {
+.body {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -6,18 +6,17 @@
     padding: 20px;  
 }
 
-
-.form-group {
+.form{
     margin-bottom: 20px;  
 }
 
-.form-group input{
+.form input{
     width: 100%;
 }
-.submit-card {
+.card {
     text-align: center;
 }
-.input-field{
+.field{
     align-items: center;
     justify-content: center;
     display: flex;
@@ -33,6 +32,11 @@
     cursor: pointer;
 }
 
-.primary-button:hover, .secondary-button:hover {
+.primary:hover, .secondary:hover {
     opacity: 0.9; 
+}
+
+.img{
+    width: 200px;
+    height: 200px;
 }

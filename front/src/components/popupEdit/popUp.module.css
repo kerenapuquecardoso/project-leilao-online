@@ -1,0 +1,28 @@
+
+
+.button_save{
+
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.inputDocuments{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    flex-direction: column;
+
+}
+
+.card{
+    width: 600px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

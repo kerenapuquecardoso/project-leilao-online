@@ -37,10 +37,10 @@ let items = [
             template: (item, options) => {
                 return (
                     
-                    <button onClick={(e) => options.onClick(e)} className={(options.className, 'w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround')}>
+                    <button onClick={() => navigate('/home/porfile', '_blank')} className={(options.className, 'w-full p-link flex align-items-center p-2 pl-4 text-color hover:surface-200 border-noround')}>
                         <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" className="mr-2" shape="circle" />
                         <div className="flex flex-column align">
-                            <span className="font-bold">Amy Elsner</span>
+                            <span className="font-bold">Keren Apuque</span>
                             <span className="text-sm">Agent</span>
                         </div>
                     </button>
@@ -52,7 +52,7 @@ let items = [
     const logout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("email");
-        navigate("/login");
+        navigate("/");
                             
     }
     return (

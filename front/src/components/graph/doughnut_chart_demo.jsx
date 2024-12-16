@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'primereact/chart';
+import { useTranslation } from "react-i18next";
 
 export default function DoughnutChartDemo() {
+    const {t} = useTranslation();
     const [chartData, setChartData] = useState({});
     const [chartOptions, setChartOptions] = useState({});
 
@@ -37,7 +39,7 @@ export default function DoughnutChartDemo() {
 
     return (
         <div className="card flex justify-content-center">
-            <label>Vendas de gado leiteiro do mês</label>
+            <label>{t('payment')}</label>
             <Chart type="doughnut" data={chartData} options={chartOptions} className="w-full md:w-30rem" />
         </div>
     )
